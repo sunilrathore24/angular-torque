@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styles: []
 })
 export class AppComponent {
-  title = 'torque-app';
+  title = 'My Page';
+  name = "Sunil Singh Rathore";
+  
 }

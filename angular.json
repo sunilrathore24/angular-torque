@@ -28,6 +28,8 @@
               "src/assets"
             ],
             "styles": [
+              "../node_modules/@saba/torque/smacss/torque.css",
+              "../node_modules/@saba/torque/smacss/theme.css",
               "src/styles.scss"
             ],
             "scripts": []
