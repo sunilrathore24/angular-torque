@@ -1,15 +1,27 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import {TorqueExpComponent} from './torque-exp/torque-exp.component';
+import { TrqCardModule, TrqButtonModule } from '@torque/ui';
+import { CommonModule } from '@angular/common';
+import { NgxPopperModule } from 'ngx-popper';
+import { TrqElementIdModule } from '@torque/core';
+
+
 
 const routes: Routes = [
-  {
-    path: '',
-    loadChildren: './torque-app/torque-app.module#TorqueAppModule'
-  }
+  { path: 'torque-exp', component: TorqueExpComponent },
+   { path: '', redirectTo: '/torque-exp', pathMatch: 'full' },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  declarations: [TorqueExpComponent],
+  imports: [ RouterModule.forRoot(routes), 
+    TrqCardModule, 
+    TrqButtonModule, 
+    CommonModule,
+    NgxPopperModule,
+    TrqElementIdModule,
+],
+  exports: [ RouterModule]
 })
 export class AppRoutingModule { }

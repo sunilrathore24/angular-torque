@@ -1,15 +1,26 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
-import { AppRoutingModule } from './app-routing.module';
+import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
+import { TrqCardModule, TrqButtonModule, TrqDropdownModule, TrqIconModule } from '@torque/ui';
+import { AppRoutingModule } from './/app-routing.module';
+import { TrqCoreModule } from '@torque/core';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
+    CommonModule,
+    // Torque
+    TrqCoreModule.forRoot(),
+
+    TrqCardModule,
+    TrqIconModule,
+    TrqButtonModule,
+    TrqDropdownModule,
     AppRoutingModule
   ],
   providers: [],

@@ -3,22 +3,17 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "torque-app": {
+    "Torque": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
-      "prefix": "ta",
-      "schematics": {
-        "@schematics/angular:component": {
-          "inlineStyle": true,
-          "styleext": "scss"
-        }
-      },
+      "prefix": "app",
+      "schematics": {},
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/torque-app",
+            "outputPath": "dist/Torque",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -28,9 +23,12 @@
               "src/assets"
             ],
             "styles": [
-              "../node_modules/@saba/torque/smacss/torque.css",
-              "../node_modules/@saba/torque/smacss/theme.css",
-              "src/styles.scss"
+              "src/styles.css",
+              "node_modules/@torque/assets/smacss/torque.css",
+              "node_modules/@torque/assets/smacss/dark-theme.css",
+              "node_modules/@torque/assets/smacss/ext-bundled-patch.css",
+              "node_modules/@torque/clr-icons/clr-icons.css",
+              "node_modules/nouislider/distribute/nouislider.css"
             ],
             "scripts": []
           },
@@ -57,18 +55,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "torque-app:build"
+            "browserTarget": "Torque:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "torque-app:build:production"
+              "browserTarget": "Torque:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "torque-app:build"
+            "browserTarget": "Torque:build"
           }
         },
         "test": {
@@ -79,7 +77,7 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-              "src/styles.scss"
+              "src/styles.css"
             ],
             "scripts": [],
             "assets": [
@@ -102,7 +100,7 @@
         }
       }
     },
-    "torque-app-e2e": {
+    "Torque-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -110,11 +108,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "torque-app:serve"
+            "devServerTarget": "Torque:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "torque-app:serve:production"
+              "devServerTarget": "Torque:serve:production"
             }
           }
         },
@@ -130,5 +128,5 @@
       }
     }
   },
-  "defaultProject": "torque-app"
+  "defaultProject": "Torque"
 }

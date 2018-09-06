@@ -1,0 +1,89 @@
+
+
+  <br/>
+  <br/>
+
+  <button [trqButton]="buttonType.OUTLINE"
+  class="sg-abstract-popper__target"
+  trqId="default"
+  [popper]="popper1Content"
+  [popperDisableStyle]="true"
+  [popperTrigger]="'hover'"
+  [popperModifiers]="popperModifiers">
+  Torque
+  <!-- <trq-icon class="sg-abstract-popover__target-icon" [name]="iconShape.KEYBOARD_ARROW_DOWN" [size]="iconSize.MD"></trq-icon> -->
+</button>
+
+<popper-content #popper1Content trqId="default-content">
+
+      <div id="basic"  class="show-card-torque">
+
+  
+          <div class="tooltip-header">
+            <div class=cource-icon>
+              <img src="assets/cource_detail.png" height="42" width="42">
+            </div>
+            <div>
+              <div class="cource-detail">{{objCource.CourceTitle}}</div>
+              <div>
+                <span class="lable">Learning Event Id : </span>
+                <span>{{objCource.Learning_Event_Id}}</span>
+              </div>
+              <div>
+                <span class="lable">Version : </span>
+                <span>{{objCource.Version}}</span>
+              </div>
+            </div>
+          </div>
+          <div>
+            <span class="lable">Source : </span>
+            <span>{{objCource.Source}}</span>
+          </div>
+          <div>
+              <span class="lable">Available_from : </span>
+              <span>{{objCource.Available_from}}</span>
+            </div>
+        
+      </div>
+  
+</popper-content>
+
+
+<br />
+<br />
+
+<div id="basic" [ngStyle]="{transform:transformclass}" [ngClass]="showtile === true ? 'show-card' : 'hide-card'">
+
+  
+    <div class="tooltip-header">
+      <div class=cource-icon>
+        <img src="assets/cource_detail.png" height="42" width="42">
+      </div>
+      <div>
+        <div class="cource-detail">{{objCource.CourceTitle}}</div>
+        <div>
+          <span class="lable">Learning Event Id : </span>
+          <span>{{objCource.Learning_Event_Id}}</span>
+        </div>
+        <div>
+          <span class="lable">Version : </span>
+          <span>{{objCource.Version}}</span>
+        </div>
+      </div>
+    </div>
+    <div>
+      <span class="lable">Source : </span>
+      <span>{{objCource.Source}}</span>
+    </div>
+    <div>
+        <span class="lable">Available_from : </span>
+        <span>{{objCource.Available_from}}</span>
+      </div>
+  
+</div>
+
+
+<br />
+<br />
+<button style="margin-top: 50px" [trqButton]="buttonType.PRIMARY" (mouseleave)="onMouseLeave()" (mouseover)="onMouseOver($event)"
+  (document:click)="closeToolTip()">button1</button>

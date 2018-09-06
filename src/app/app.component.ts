@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
+import { TrqButtonType } from '@torque/ui';
 
 @Component({
-  selector: 'ta-root',
+  selector: 'app-root',
   templateUrl: './app.component.html',
-  styles: []
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'My Page';
-  name = "Sunil Singh Rathore";
-  
+  title = 'Torque';
+  buttonType = TrqButtonType;
 }
