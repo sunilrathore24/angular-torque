@@ -1,5 +1,21 @@
 <div> 
+  <div class="header-div">
   <img src="assets/saba_images/header.png" class="header-image">
+  <img src="assets/saba_images/Sunil_Pic.jpg" class="profile-pic"
+  trqId="default"
+  [popper]="popper1Content"
+  [popperDisableStyle]="true"
+  [popperTrigger]="'hover'"
+  [popperModifiers]="popperModifiers">
+ 
+<popper-content #popper1Content trqId="default-content">
+
+      <div id="basic"  class="show-card-torque">
+          <img src="assets/saba_images/profile.png" >
+      </div>
+  
+</popper-content>
+</div>
 
 <span>
   <img src="assets/saba_images/MyPlanButton.png" class="my-paln-button">
