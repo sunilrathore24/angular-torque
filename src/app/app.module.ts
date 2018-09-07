@@ -1,5 +1,4 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
@@ -16,7 +15,6 @@ import { TrqFormFieldModule, TrqInputModule } from '@torque/forms';
     AppComponent
   ],
   imports: [
- 
     BrowserModule,
     CommonModule,
     FormsModule,
