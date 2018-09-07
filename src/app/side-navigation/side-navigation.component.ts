@@ -25,7 +25,11 @@ export class SideNavigationComponent implements OnInit {
     // filter those items who are marked as favourite
     this.navigationItemsToDisplay =  this.navigationItems.filter(item => item.isFavourite);
   }
-
+  showAllItems(): void {
+    this.navigationItemsToDisplay =  this.navigationItems.filter(
+      item => item.name.toLocaleLowerCase().startsWith('')
+    );
+  }
   searchItems(itemName: string): void {
     if (itemName !== '') {
       if (Array.isArray(this.navigationItems)) {
