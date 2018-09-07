@@ -1,0 +1,10 @@
+<div class="navigation">
+<div>
+  <input type="text" placeholder="Type to search" name="itemName" [(ngModel)]="NavigationItemName"
+  (ngModelChange)="searchItems($event)">
+</div>
+<div *ngFor="let item of navigationItemsToDisplay">
+  <li>{{item.name}}</li>
+  <trq-icon *ngIf="item.isFavourite" [name]="iconName.STAR" [size]="iconSize.MD"></trq-icon>
+</div>
+</div>
