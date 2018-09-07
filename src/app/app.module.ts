@@ -1,4 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
@@ -7,13 +8,16 @@ import { AppRoutingModule } from './/app-routing.module';
 import { TrqCoreModule } from '@torque/core';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
   ],
   imports: [
+ 
     BrowserModule,
     CommonModule,
+    FormsModule,
     // Torque
     TrqCoreModule.forRoot(),
 
@@ -21,7 +25,7 @@ import { TrqCoreModule } from '@torque/core';
     TrqIconModule,
     TrqButtonModule,
     TrqDropdownModule,
-    AppRoutingModule
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

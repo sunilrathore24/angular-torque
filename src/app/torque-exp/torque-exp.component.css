@@ -4,10 +4,11 @@
 
 .my-paln-button{
     margin:2%;
+    margin-left: 40%;
 }
 
 .todo-button{
-    margin-left: 45%;
+    margin-left: 10%;
 }
 
 .profile-pic{
@@ -16,6 +17,15 @@
     right: 27%;
     height: 40px;
     width: 40px;
+    border-radius: 50%;
+    border: 3px solid #d1d7d9;
+}
+
+.profile-pic-action-header{
+    position: relative;
+    z-index: 1;
+    height: 90px;
+    width: 90px;
     border-radius: 50%;
     border: 3px solid #d1d7d9;
 }
@@ -45,4 +55,103 @@
 
 .card {
     margin-top: 0px;
+}
+
+.action-header{
+    display: flex;
+    padding: .5%;
+    align-items: center;
+    justify-content: space-around;
+}
+
+
+.user-profile-span{
+    position: relative;
+    display: flex;
+}
+
+.user-profile-center{
+    left: 68px;
+    position: absolute;
+    width: 102px;
+    height: 75px;
+    background-color: #f3f3f3;
+    border-top: 3px solid #d1d7d9;
+    border-bottom: 3px solid #d1d7d9;
+    top: 7px;
+}
+
+.user-profile-curve{
+    left: 170px;
+    position: absolute;
+    width: 75px;
+    height: 75px;
+    background-color: #f3f3f3;
+    border-bottom-right-radius: 50%;
+    border-top-right-radius: 50%;
+    border-top: 3px solid #d1d7d9;
+    border-bottom: 3px solid #d1d7d9;
+    border-right: 3px solid #d1d7d9;
+    top: 7px;
+}
+
+.profile-content{
+    position: absolute;
+    z-index: 1;
+    left: 90px;
+    top: 10px;
+    width: 150px;
+}
+
+.profile-name{
+    font-weight: bold;
+}
+
+.pq-rating{
+    margin-left: 26%;
+    margin-top: -3px;
+    font-size: large;
+    color: #13b9fb;
+}
+
+.sharing-icon{
+    margin-left: 28%;
+    margin-top: -3px;
+}
+
+
+.profile-img-container {
+    position: relative;
+}
+
+.profile-img-container fa {
+    position: absolute;
+    top: 45%;  
+    left: 45%;
+    transform: translate(-45%, -45%);
+    font-size: x-large;
+    display: none;
+}
+
+.profile-img-container:hover img {
+    opacity: 0.5;    
+}
+
+.profile-img-container:hover fa {
+    display: block;
+    z-index: 500;
+}
+
+.action-div{
+    background-color: white;
+}
+
+.down-content{
+    background-color: white;
+    margin-top: 5px;
+    padding: .5%;
+}
+
+.img-doughnut{
+    margin-left: 2%;
 }

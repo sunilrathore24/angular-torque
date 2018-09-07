@@ -5,6 +5,7 @@ import { TrqCardModule, TrqButtonModule } from '@torque/ui';
 import { CommonModule } from '@angular/common';
 import { NgxPopperModule } from 'ngx-popper';
 import { TrqElementIdModule } from '@torque/core';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
 
 
 
@@ -21,7 +22,8 @@ const routes: Routes = [
     CommonModule,
     NgxPopperModule,
     TrqElementIdModule,
+    AngularFontAwesomeModule,
 ],
-  exports: [ RouterModule]
+  exports: [RouterModule]
 })
 export class AppRoutingModule { }

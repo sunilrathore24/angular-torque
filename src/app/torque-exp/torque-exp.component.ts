@@ -10,9 +10,10 @@ export class TorqueExpComponent implements OnInit {
   buttonType = TrqButtonType;
   iconShape = TrqIconShape;
   iconSize = TrqIconSize;
-  showtile:boolean = false;
-  cordy:number;
-  transformclass:string;
+  sometext: string;
+  showtile = false;
+  cordy: number;
+  transformclass: string;
   objCource = {};
   popperModifiers = {
     offset: { enabled: true, offset: '0, 3' },
