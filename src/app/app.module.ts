@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { TrqCardModule, TrqButtonModule, TrqDropdownModule, TrqIconModule } from '@torque/ui';
 import { AppRoutingModule } from './/app-routing.module';
 import { TrqCoreModule } from '@torque/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TrqFormFieldModule, TrqInputModule } from '@torque/forms';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent,
+    AppComponent
   ],
   imports: [
  
@@ -20,7 +22,6 @@ import { TrqCoreModule } from '@torque/core';
     FormsModule,
     // Torque
     TrqCoreModule.forRoot(),
-
     TrqCardModule,
     TrqIconModule,
     TrqButtonModule,
