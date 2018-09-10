@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { NavigationService } from '../services/navigation.service';
 import { NavigationItem } from '../models/navigationItems.model';
 import { TrqIconShape, TrqIconSize } from '@torque/ui';
@@ -9,7 +9,9 @@ import { TrqIconShape, TrqIconSize } from '@torque/ui';
   styleUrls: ['./side-navigation.component.css']
 })
 export class SideNavigationComponent implements OnInit {
+  @ViewChild('inputChoice') inputChoice: ElementRef;
   NavigationItemName: string;
+  toggleShowAll = true;
   navigationItems: NavigationItem[];
   navigationItemsToDisplay: NavigationItem[];
   iconName = TrqIconShape;
@@ -26,9 +28,17 @@ export class SideNavigationComponent implements OnInit {
     this.navigationItemsToDisplay =  this.navigationItems.filter(item => item.isFavourite);
   }
   showAllItems(): void {
-    this.navigationItemsToDisplay =  this.navigationItems.filter(
-      item => item.name.toLocaleLowerCase().startsWith('')
-    );
+    if (this.toggleShowAll) {
+      this.navigationItemsToDisplay =  this.navigationItems.filter(
+        item => item.name.toLocaleLowerCase().startsWith('')
+      );
+    } else {
+      this.navigationItemsToDisplay =  this.navigationItems.filter(
+        item => item.isFavourite
+      );
+    }
+    this.inputChoice.nativeElement.value = '';
+    this.toggleShowAll = !this.toggleShowAll;
   }
   searchItems(itemName: string): void {
     if (itemName !== '') {
