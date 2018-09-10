@@ -1,16 +1,18 @@
 <div class="navigation">
-  <div class="trq-g">
+  <div class="trq-g navigation-searchheader">
       <div class="trq-u-1 trq-u-md-2-3">
-          <input type="text" placeholder="Type to search" name="itemName" [(ngModel)]="NavigationItemName"
+        <trq-icon [name]="iconName.SEARCH" [size]="iconSize.MD"></trq-icon>
+          <input class="navigation-searchbar" type="text" #inputChoice placeholder="Type to search" name="itemName" [(ngModel)]="NavigationItemName"
           (ngModelChange)="searchItems($event)">
         </div>
         <div class="trq-u-1 trq-u-md-1-3">
-        <a (click)="showAllItems()">Show all</a>
+        <a *ngIf="toggleShowAll" class="navigation-showalllink" (click)="showAllItems()">Show all</a>
+        <a *ngIf="!toggleShowAll" class="navigation-showalllink" (click)="showAllItems()">Show favourites</a>
         </div>
   </div>
 
-<div *ngFor="let item of navigationItemsToDisplay">
-  <li>{{item.name}}</li>
-  <trq-icon *ngIf="item.isFavourite" [name]="iconName.STAR" [size]="iconSize.MD"></trq-icon>
+<div class="trq-g" *ngFor="let item of navigationItemsToDisplay">
+  <li class="trq-u-1 trq-u-md-11-12" style="list-style-type:none">{{item.name}}</li>
+  <trq-icon class="trq-u-1 trq-u-md-1-12" *ngIf="item.isFavourite" [name]="iconName.STAR" [size]="iconSize.MD"></trq-icon>
 </div>
 </div>

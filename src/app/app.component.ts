@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TrqButtonType } from '@torque/ui';
+import { TrqButtonType, TrqRegisterIconService } from '@torque/ui';
 
 @Component({
   selector: 'app-root',
@@ -9,4 +9,10 @@ import { TrqButtonType } from '@torque/ui';
 export class AppComponent {
   title = 'Torque';
   buttonType = TrqButtonType;
+
+  constructor(
+    _iconService: TrqRegisterIconService
+  ) {
+    _iconService.registerDefaultIcons();
+  }
 }

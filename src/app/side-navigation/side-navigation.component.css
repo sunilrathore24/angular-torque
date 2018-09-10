@@ -6,4 +6,17 @@
   opacity: 0.7;
 }
 
+.navigation-showalllink {
+  text-decoration: underline !important;
+}
+
+.navigation-searchheader {
+  margin-bottom: 10px;
+}
+
+.navigation-searchbar {
+  border: none;
+  border-radius: 12px;
+  padding-left: 10px;
+}
 
