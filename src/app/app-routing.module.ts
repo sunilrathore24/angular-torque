@@ -8,11 +8,12 @@ import { TrqElementIdModule } from '@torque/core';
 import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { SideNavigationComponent } from './side-navigation/side-navigation.component';
 import { FormsModule } from '@angular/forms';
+import {MatButtonModule} from '@angular/material/button';
 
 
 
 const routes: Routes = [
-   { path: '', redirectTo: '/side-nav', pathMatch: 'full' },
+   { path: '', redirectTo: '/torque-exp', pathMatch: 'full' },
    { path: 'torque-exp', component: TorqueExpComponent },
    {path: 'side-nav', component: SideNavigationComponent}
 ];
@@ -28,6 +29,7 @@ const routes: Routes = [
     NgxPopperModule,
     TrqElementIdModule,
     AngularFontAwesomeModule,
+    MatButtonModule
 ],
   exports: [RouterModule]
 })

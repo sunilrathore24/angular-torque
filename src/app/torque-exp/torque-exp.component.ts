@@ -11,7 +11,7 @@ export class TorqueExpComponent implements OnInit {
   iconShape = TrqIconShape;
   iconSize = TrqIconSize;
   sometext: string;
-  showtile = false;
+  showModel = false;
   cordy: number;
   transformclass: string;
   objCource = {};
@@ -40,7 +40,7 @@ export class TorqueExpComponent implements OnInit {
     this.cordy = event.currentTarget.clientHeight + event.currentTarget.offsetTop + 5;
     this.transformclass = 'translate3d(' + event.currentTarget.offsetLeft + 'px, ' + this.cordy + 'px, 0px)';
 
-    this.showtile = true;
+    //this.showtile = true;
   }
 
   onMouseLeave() {
@@ -49,9 +49,16 @@ export class TorqueExpComponent implements OnInit {
     // }, 2000);
   }
 
-  closeToolTip() {
-    this.showtile = false;
+  closeFeatureModel(event) {
+    if ( event.target.id !== 'model-div') {
+    this.showModel = false;
+    }
 
+  }
+
+  showFeatureModel(event) {
+    event.stopPropagation();
+    this.showModel = true;
   }
 
 }

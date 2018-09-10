@@ -12,7 +12,14 @@
 
     </popper-content>
   </div>
-
+  <!-- <div class="fab-icon material-style">
+    <fa name="fal fa-bars"></fa>
+  </div> -->
+  <button mat-fab class="angular-fab-button"  (document:click)="closeFeatureModel($event)" (click)="showFeatureModel($event)">
+    <fa name="fal fa-bars"></fa>
+    <div id= "model-div" [ngClass]="showModel === true ? 'popover-model-show' : 'popover-model-hide'"></div>
+  </button>
+  
   <div class="action-div">
     <div class="action-header">
       <span class="user-profile-span">
