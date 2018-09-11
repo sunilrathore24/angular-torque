@@ -15,11 +15,35 @@
   <!-- <div class="fab-icon material-style">
     <fa name="fal fa-bars"></fa>
   </div> -->
-  <button mat-fab class="angular-fab-button"  (document:click)="closeFeatureModel($event)" (click)="showFeatureModel($event)">
+  <button mat-fab class="angular-fab-button" (document:click)="closeFeatureModel($event)" (click)="showFeatureModel($event)">
     <fa name="fal fa-bars"></fa>
-    <div id= "model-div" [ngClass]="showModel === true ? 'popover-model-show' : 'popover-model-hide'"></div>
+    <div id="model-div" [ngClass]="showModel === true ? 'popover-model-show' : 'popover-model-hide'"></div>
   </button>
-  
+
+  <div id="fab-div" #fabdiv class="fab fab-icon-button" (click)="showFabDiv($event); $event.stopPropagation();">
+    <fa class="active-fab-icon" name="fal fa-bars"></fa>
+    <div id="fab-hdr" class='cntt-wrapper'>
+      <div class="trq-g navigation-searchheader">
+        <div class="trq-u-1 trq-u-md-2-3">
+          <trq-icon [name]="iconShape.SEARCH" [size]="iconSize.MD"></trq-icon>
+          <input class="navigation-searchbar" type="text" #inputChoice placeholder="Type to search" name="itemName"
+            [(ngModel)]="NavigationItemName" (ngModelChange)="searchItems($event)">
+        </div>
+        <div class="trq-u-1 trq-u-md-1-3">
+          <a *ngIf="toggleShowAll" class="navigation-showalllink" (click)="showAllItems()">Show all</a>
+          <a *ngIf="!toggleShowAll" class="navigation-showalllink" (click)="showAllItems()">Show favourites</a>
+        </div>
+      </div>
+    </div>
+    <div class="option-list-div">
+      <div class="trq-g option-list" *ngFor="let item of navigationItemsToDisplay">
+        <li class="trq-u-1 trq-u-md-11-12" style="list-style-type:none">{{item.name}}</li>
+        <trq-icon class="trq-u-1 trq-u-md-1-12" *ngIf="item.isFavourite" [name]="iconShape.STAR" [size]="iconSize.MD"></trq-icon>
+      </div>
+    </div>
+
+  </div>
+
   <div class="action-div">
     <div class="action-header">
       <span class="user-profile-span">
@@ -51,12 +75,25 @@
     </div>
   </div>
   <div class="down-content">
-      <img src="assets/saba_images/doughnut.png" class="img-doughnut" > 
-      <img src="assets/saba_images/courseDetail.png" >
-      <img src="assets/saba_images/courseDetail2.png" >
-      <img src="assets/saba_images/courseDetail2.png" >
-      <img src="assets/saba_images/courseDetail2.png" >
-      <img src="assets/saba_images/courseDetail2.png" >
+    <div class="img-div">
+      <img src="assets/saba_images/doughnut.png" class="img-doughnut">
+    </div>
+    <div class="img-div">
+      <img src="assets/saba_images/courseDetail.png">
+    </div>
+    <div class="img-div">
+      <img src="assets/saba_images/courseDetail2.png">
+    </div>
+    <div class="img-div">
+      <img src="assets/saba_images/courseDetail2.png">
+    </div>
+    <div class="img-div">
+      <img src="assets/saba_images/courseDetail2.png">
+    </div>
+    <div class="img-div">
+      <img src="assets/saba_images/courseDetail2.png">
+    </div>
+
   </div>
 
 </div>

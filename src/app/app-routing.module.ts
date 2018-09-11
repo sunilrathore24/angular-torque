@@ -9,6 +9,7 @@ import { AngularFontAwesomeModule } from 'angular-font-awesome';
 import { SideNavigationComponent } from './side-navigation/side-navigation.component';
 import { FormsModule } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
+import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 
 
 
@@ -21,6 +22,7 @@ const routes: Routes = [
 @NgModule({
   declarations: [TorqueExpComponent, SideNavigationComponent],
   imports: [ RouterModule.forRoot(routes),
+    PerfectScrollbarModule,
     TrqCardModule,
     TrqButtonModule,
     TrqIconModule,

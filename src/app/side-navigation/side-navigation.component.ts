@@ -23,32 +23,32 @@ export class SideNavigationComponent implements OnInit {
     this.configureData();
   }
 
-  configureData(): void {
-    // filter those items who are marked as favourite
-    this.navigationItemsToDisplay =  this.navigationItems.filter(item => item.isFavourite);
-  }
-  showAllItems(): void {
-    if (this.toggleShowAll) {
-      this.navigationItemsToDisplay =  this.navigationItems.filter(
-        item => item.name.toLocaleLowerCase().startsWith('')
-      );
-    } else {
-      this.navigationItemsToDisplay =  this.navigationItems.filter(
-        item => item.isFavourite
-      );
+    configureData(): void {
+      // filter those items who are marked as favourite
+      this.navigationItemsToDisplay =  this.navigationItems.filter(item => item.isFavourite);
     }
-    this.inputChoice.nativeElement.value = '';
-    this.toggleShowAll = !this.toggleShowAll;
-  }
-  searchItems(itemName: string): void {
-    if (itemName !== '') {
-      if (Array.isArray(this.navigationItems)) {
+    showAllItems(): void {
+      if (this.toggleShowAll) {
         this.navigationItemsToDisplay =  this.navigationItems.filter(
-          item => item.name.toLocaleLowerCase().startsWith(itemName.toLocaleLowerCase())
+          item => item.name.toLocaleLowerCase().startsWith('')
+        );
+      } else {
+        this.navigationItemsToDisplay =  this.navigationItems.filter(
+          item => item.isFavourite
         );
       }
-    } else {
-      this.configureData();
+      this.inputChoice.nativeElement.value = '';
+      this.toggleShowAll = !this.toggleShowAll;
     }
-}
+    searchItems(itemName: string): void {
+      if (itemName !== '') {
+        if (Array.isArray(this.navigationItems)) {
+          this.navigationItemsToDisplay =  this.navigationItems.filter(
+            item => item.name.toLocaleLowerCase().startsWith(itemName.toLocaleLowerCase())
+          );
+        }
+      } else {
+        this.configureData();
+      }
+  }
 }
