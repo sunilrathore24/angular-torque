@@ -1,13 +1,15 @@
 import { Component, OnInit, ViewChild, ElementRef, OnDestroy } from "@angular/core";
-import { TrqButtonType, TrqIconShape, TrqIconSize } from "@torque/ui";
-import { NavigationService } from "../services/navigation.service";
-import { NavigationItem } from "../models/navigationItems.model";
 import { SpeechRecognitionService } from "../voice-record/speech-recognition.service";
+import { TrqButtonType, TrqIconShape, TrqIconSize } from '@torque/ui';
+import { NavigationService } from '../services/navigation.service';
+import { NavigationItem } from '../models/navigationItems.model';
+import groupBy from 'lodash-es/groupBy';
+import concat from 'lodash-es/concat';
 
 @Component({
-  selector: "app-torque-exp",
-  templateUrl: "./torque-exp.component.html",
-  styleUrls: ["./torque-exp.component.css"]
+  selector: 'app-torque-exp',
+  templateUrl: './torque-exp.component.html',
+  styleUrls: ['./torque-exp.component.css']
 })
 export class TorqueExpComponent implements OnInit, OnDestroy {
   @ViewChild("fabdiv")
@@ -21,12 +23,12 @@ export class TorqueExpComponent implements OnInit, OnDestroy {
   transformclass: string;
   objCource = {};
   popperModifiers = {
-    offset: { enabled: true, offset: "0, 3" },
-    preventOverflow: { boundariesElement: "viewport" }
+    offset: { enabled: true, offset: '0, 3' },
+    preventOverflow: { boundariesElement: 'viewport' }
   };
 
-  //side nave data
-  @ViewChild("inputChoice")
+  // side nave data
+  @ViewChild('inputChoice')
   inputChoice: ElementRef;
   NavigationItemName: string;
   toggleShowAll = true;
@@ -36,14 +38,14 @@ export class TorqueExpComponent implements OnInit, OnDestroy {
   constructor(private navService: NavigationService,
               private speechRecognitionService: SpeechRecognitionService) {
     this.objCource = {
-      CourceTitle: "Natural Language Processing and Text Mining Without Coding",
-      Learning_Event_Id: "00201312",
-      Version: "1",
-      Source: `User One, SPC124618 Learner Data Scientist was recently dubbed 
-                  “The Sexiest Job of the 21st Century” by Harvard Business Review, 
-                  Glassdoor reports that Data Scientist was named the “Best Job in 
+      CourceTitle: 'Natural Language Processing and Text Mining Without Coding',
+      Learning_Event_Id: '00201312',
+      Version: '1',
+      Source: `User One, SPC124618 Learner Data Scientist was recently dubbed
+                  “The Sexiest Job of the 21st Century” by Harvard Business Review,
+                  Glassdoor reports that Data Scientist was named the “Best Job in
                   America for 2016,” and business`,
-      Available_from: "08-AUG-2018"
+      Available_from: '08-AUG-2018'
     };
   }
 
@@ -60,18 +62,20 @@ export class TorqueExpComponent implements OnInit, OnDestroy {
   showAllItems(): void {
     if (this.toggleShowAll) {
       this.navigationItemsToDisplay = this.navigationItems.filter(item =>
-        item.name.toLocaleLowerCase().startsWith("")
+        item.name.toLocaleLowerCase().startsWith('')
       );
+      const v = groupBy(this.navigationItemsToDisplay, 'isFavourite');
+      this.navigationItemsToDisplay = concat(v['true'], v['false']);
     } else {
       this.navigationItemsToDisplay = this.navigationItems.filter(
         item => item.isFavourite
       );
     }
-    this.inputChoice.nativeElement.value = "";
+    this.inputChoice.nativeElement.value = '';
     this.toggleShowAll = !this.toggleShowAll;
   }
   searchItems(itemName: string): void {
-    if (itemName !== "") {
+    if (itemName !== '') {
       if (Array.isArray(this.navigationItems)) {
         this.navigationItemsToDisplay = this.navigationItems.filter(item =>
           item.name.toLocaleLowerCase().startsWith(itemName.toLocaleLowerCase())
@@ -92,7 +96,7 @@ export class TorqueExpComponent implements OnInit, OnDestroy {
       this.cordy +
       'px, 0px)';
 
-    //this.showtile = true;
+    // this.showtile = true;
   }
 
   onMouseLeave() {
@@ -125,7 +129,7 @@ export class TorqueExpComponent implements OnInit, OnDestroy {
   showFabDiv(event) {
     // if (event) { event.preventDefault();
     // }
-    this.febdivref.nativeElement.setAttribute("class", "fab active");
+    this.febdivref.nativeElement.setAttribute('class', 'fab active');
   }
 
   ngOnDestroy() {
