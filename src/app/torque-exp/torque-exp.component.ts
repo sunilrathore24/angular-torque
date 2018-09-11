@@ -138,13 +138,20 @@ export class TorqueExpComponent implements OnInit, OnDestroy {
 
 activateSpeechSearchMovie(): void {
     // this.showSearchButton = false;
-
+    this.NavigationItemName = "listening..."
     this.speechRecognitionService.record()
         .subscribe(
         //listener
         (value) => {
-            this.NavigationItemName = value;
-            console.log(value);
+
+          this.NavigationItemName = value;
+          if (value === 'show all') {
+            this.showAllItems();
+          } else {
+            this.searchItems(value);
+          }
+          
+          console.log(value);
         },
         //errror
         (err) => {

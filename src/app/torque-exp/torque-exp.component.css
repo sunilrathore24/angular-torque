@@ -373,7 +373,7 @@ button:focus {
 .navigation-searchbar {
   border: none;
   border-radius: 12px;
-  padding-left: 10px;
+  padding-left: 25px;
 }
 
 .img-div {
@@ -389,4 +389,19 @@ li{
   color: white;
   padding: 12px;
   text-decoration: none;
+}
+
+.search-mike{
+  position: relative;
+}
+
+.mike{
+  position: absolute;
+  left:30px;
+  top:2px;
+  color: darkgray;
+}
+
+.mike:hover{
+  color: black;
 }
