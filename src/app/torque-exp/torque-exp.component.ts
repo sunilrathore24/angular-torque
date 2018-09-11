@@ -1,14 +1,15 @@
-import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
+import { Component, OnInit, ViewChild, ElementRef, OnDestroy } from "@angular/core";
 import { TrqButtonType, TrqIconShape, TrqIconSize } from "@torque/ui";
 import { NavigationService } from "../services/navigation.service";
 import { NavigationItem } from "../models/navigationItems.model";
+import { SpeechRecognitionService } from "../voice-record/speech-recognition.service";
 
 @Component({
   selector: "app-torque-exp",
   templateUrl: "./torque-exp.component.html",
   styleUrls: ["./torque-exp.component.css"]
 })
-export class TorqueExpComponent implements OnInit {
+export class TorqueExpComponent implements OnInit, OnDestroy {
   @ViewChild("fabdiv")
   febdivref: ElementRef;
   buttonType = TrqButtonType;
@@ -32,7 +33,8 @@ export class TorqueExpComponent implements OnInit {
   navigationItems: NavigationItem[];
   navigationItemsToDisplay: NavigationItem[];
   ///////////////
-  constructor(private navService: NavigationService) {
+  constructor(private navService: NavigationService,
+              private speechRecognitionService: SpeechRecognitionService) {
     this.objCource = {
       CourceTitle: "Natural Language Processing and Text Mining Without Coding",
       Learning_Event_Id: "00201312",
@@ -125,4 +127,34 @@ export class TorqueExpComponent implements OnInit {
     // }
     this.febdivref.nativeElement.setAttribute("class", "fab active");
   }
+
+  ngOnDestroy() {
+    this.speechRecognitionService.DestroySpeechObject();
+}
+
+activateSpeechSearchMovie(): void {
+    // this.showSearchButton = false;
+
+    this.speechRecognitionService.record()
+        .subscribe(
+        //listener
+        (value) => {
+            this.NavigationItemName = value;
+            console.log(value);
+        },
+        //errror
+        (err) => {
+            console.log(err);
+            if (err.error == "no-speech") {
+                console.log("--restatring service--");
+                this.activateSpeechSearchMovie();
+            }
+        },
+        //completion
+        () => {
+            // this.showSearchButton = true;
+            console.log("--complete--");
+            this.activateSpeechSearchMovie();
+        });
+}
 }

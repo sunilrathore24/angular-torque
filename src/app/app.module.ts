@@ -7,12 +7,14 @@ import { AppRoutingModule } from './/app-routing.module';
 import { TrqCoreModule } from '@torque/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TrqFormFieldModule, TrqInputModule } from '@torque/forms';
+import { VoiceRecordComponent } from './voice-record/voice-record.component';
 
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    VoiceRecordComponent
   ],
   imports: [
     BrowserModule,

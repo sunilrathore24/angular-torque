@@ -26,6 +26,7 @@
       <div class="trq-g navigation-searchheader">
         <div class="trq-u-1 trq-u-md-2-3">
           <trq-icon [name]="iconShape.SEARCH" [size]="iconSize.MD"></trq-icon>
+          <fa name="fal fa-microphone"></fa>
           <input class="navigation-searchbar" type="text" #inputChoice placeholder="Type to search" name="itemName"
             [(ngModel)]="NavigationItemName" (ngModelChange)="searchItems($event)">
         </div>
