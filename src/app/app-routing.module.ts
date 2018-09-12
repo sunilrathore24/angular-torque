@@ -11,7 +11,6 @@ import { FormsModule } from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { SpeechRecognitionService } from './voice-record/speech-recognition.service';
-import {VoiceRecordComponent} from './voice-record/voice-record.component';
 
 
 
@@ -19,8 +18,7 @@ import {VoiceRecordComponent} from './voice-record/voice-record.component';
 const routes: Routes = [
    { path: '', redirectTo: '/torque-exp', pathMatch: 'full' },
    { path: 'torque-exp', component: TorqueExpComponent },
-   {path: 'side-nav', component: SideNavigationComponent},
-   {path: 'app-voice-record', component: VoiceRecordComponent}
+   {path: 'side-nav', component: SideNavigationComponent}
 ];
 
 @NgModule({
