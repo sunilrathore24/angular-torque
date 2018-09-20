@@ -7,6 +7,10 @@ import { AppRoutingModule } from './/app-routing.module';
 import { TrqCoreModule } from '@torque/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TrqFormFieldModule, TrqInputModule } from '@torque/forms';
+import { NgxPopperModule } from 'ngx-popper';
+import { AngularFontAwesomeModule } from 'angular-font-awesome';
+import { TrqElementIdModule } from '@torque/core';
+
 
 
 
@@ -15,16 +19,19 @@ import { TrqFormFieldModule, TrqInputModule } from '@torque/forms';
     AppComponent
   ],
   imports: [
+    AngularFontAwesomeModule,
     BrowserModule,
-    CommonModule,
     FormsModule,
     // Torque
     TrqCoreModule.forRoot(),
     TrqCardModule,
     TrqIconModule,
+    CommonModule,
     TrqButtonModule,
     TrqDropdownModule,
     AppRoutingModule,
+    NgxPopperModule,
+    TrqElementIdModule
   ],
   providers: [TrqRegisterIconService],
   bootstrap: [AppComponent]

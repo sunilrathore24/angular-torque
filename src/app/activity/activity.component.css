@@ -1,0 +1,14 @@
+.down-content {
+    background-color: white;
+    margin-top: 5px;
+    padding: .5%;
+  }
+  
+  .img-doughnut {
+    margin-left: 2%;
+  }
+
+  .img-div {
+    display: flex;
+    justify-content: center;
+  }
